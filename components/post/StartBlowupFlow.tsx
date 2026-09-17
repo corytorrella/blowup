@@ -347,8 +347,8 @@ function PostedConfirmation({ companyName }: { companyName: string }) {
         <Button variant="outline" size="md" onClick={() => window.location.reload()}>
           Start Another
         </Button>
-        <Button size="md" onClick={() => (window.location.href = "/most-ratiod")}>
-          See Most Ratio&rsquo;d
+        <Button size="md" onClick={() => (window.location.href = "/burn-list")}>
+          See the Burn List
         </Button>
       </div>
     </div>

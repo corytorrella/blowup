@@ -24,7 +24,7 @@ export default function PressPage() {
           BLOWUP is a live leaderboard of consumer rage. Complaints against companies &mdash; called Blowups &mdash;
           accumulate public &ldquo;Heat&rdquo; as people pile on, climbing a six-tier ladder from Lit Fuse to Nuclear.
           Cross-company patterns surface automatically as Flashpoints, and the platform&rsquo;s weekly Drop reveals
-          the new order of its flagship Most Ratio&rsquo;d leaderboard every Monday at noon.
+          the new order of its flagship Burn List leaderboard every Monday at noon.
         </p>
       </section>
 

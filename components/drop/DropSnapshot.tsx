@@ -27,7 +27,7 @@ export function DropSnapshot({ drop }: { drop: DropEntry }) {
       </div>
 
       <div className="mt-8 border-t border-void-line">
-        {drop.mostRatiod.map((slug, i) => {
+        {drop.burnList.map((slug, i) => {
           const company = getCompany(slug);
           if (!company) return null;
           return (

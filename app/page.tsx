@@ -28,7 +28,7 @@ import { formatHeat, formatDate } from "@/lib/format";
 import { HEAT_TIER_LABEL } from "@/lib/tiers";
 
 export default function HomePage() {
-  const mostRatiod = topCompanies(8);
+  const burnList = topCompanies(8);
   const spotlightFlashpoints = flashpoints.slice(0, 4);
   const inductions = hallOfFlameCompanies().slice(0, 4);
   const headline = blowupOfTheYear();
@@ -71,11 +71,11 @@ export default function HomePage() {
       {/* Live Ticker */}
       <TickerMarquee items={tickerItems} />
 
-      {/* Most Ratio'd preview */}
+      {/* Burn List preview */}
       <section className="mx-auto max-w-5xl px-4 py-20 md:px-8">
-        <SectionHeader eyebrow="Live Leaderboard" title="Most Ratio'd" href="/most-ratiod" linkLabel="See Full Leaderboard" />
+        <SectionHeader eyebrow="Live Leaderboard" title="Burn List" href="/burn-list" linkLabel="See Full Leaderboard" />
         <div className="border-t border-void-line">
-          {mostRatiod.map((c) => (
+          {burnList.map((c) => (
             <LeaderboardRow key={c.slug} company={c} />
           ))}
         </div>

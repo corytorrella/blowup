@@ -4,7 +4,7 @@ import { useState } from "react";
 import { LeaderboardRow } from "./LeaderboardRow";
 import type { Company, CategoryHall } from "@/lib/types";
 
-export function MostRatiodList({ companies, categories }: { companies: Company[]; categories: CategoryHall[] }) {
+export function BurnList({ companies, categories }: { companies: Company[]; categories: CategoryHall[] }) {
   const [filter, setFilter] = useState<string | null>(null);
   const visible = filter ? companies.filter((c) => c.categorySlug === filter) : companies;
   const categoryLabel = (slug: string) => categories.find((c) => c.slug === slug)?.name;

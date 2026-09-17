@@ -111,7 +111,7 @@ export interface Squad {
 
 export interface DropEntry {
   date: string;
-  mostRatiod: string[];
+  burnList: string[];
   biggestMover: { companySlug: string; delta: number };
   flashpointOfWeek: string;
 }

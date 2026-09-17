@@ -59,7 +59,7 @@ export default function AboutPage() {
             places it shows up.
           </Step>
           <Step n="04" title="Eventually, it's a number a company can't pretend not to see.">
-            On its own Burn Site, on category leaderboards, on Flashpoints, and on Most Ratio&rsquo;d.
+            On its own Burn Site, on category leaderboards, on Flashpoints, and on the Burn List.
           </Step>
         </ol>
       </section>

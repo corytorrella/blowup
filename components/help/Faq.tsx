@@ -34,7 +34,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "What happens at The Drop?",
-    a: "Every Monday at noon, the Most Ratio'd leaderboard locks and reveals its new order, alongside Biggest Mover of the Week and Flashpoint of the Week.",
+    a: "Every Monday at noon, the Burn List leaderboard locks and reveals its new order, alongside Biggest Mover of the Week and Flashpoint of the Week.",
   },
   {
     q: "Is my identity attached to what I post?",

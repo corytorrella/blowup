@@ -9,7 +9,7 @@ import { Avatar } from "@/components/ui/Avatar";
 import { useAuth } from "@/components/auth/AuthProvider";
 
 const NAV_LINKS = [
-  { href: "/most-ratiod", label: "Most Ratio'd" },
+  { href: "/burn-list", label: "Burn List" },
   { href: "/flashpoints", label: "Flashpoints" },
   { href: "/halls-of-flame", label: "Halls of Flame" },
   { href: "/aftermath", label: "Aftermath" },

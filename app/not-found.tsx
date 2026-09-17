@@ -14,8 +14,8 @@ export default function NotFound() {
         <ButtonLink href="/" variant="outline" size="md">
           Back Home
         </ButtonLink>
-        <ButtonLink href="/most-ratiod" size="md">
-          Most Ratio&rsquo;d
+        <ButtonLink href="/burn-list" size="md">
+          Burn List
         </ButtonLink>
       </div>
     </div>

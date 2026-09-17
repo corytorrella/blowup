@@ -485,12 +485,12 @@ function buildDrops(weeks = 10): DropEntry[] {
       const i = range(rand, 0, shuffled.length - 2);
       [shuffled[i], shuffled[i + 1]] = [shuffled[i + 1], shuffled[i]];
     }
-    const mostRatiod = shuffled.slice(0, 10);
+    const burnList = shuffled.slice(0, 10);
     entries.push({
       date,
-      mostRatiod,
+      burnList,
       biggestMover: {
-        companySlug: pick(rand, mostRatiod),
+        companySlug: pick(rand, burnList),
         delta: range(rand, 3, 11),
       },
       flashpointOfWeek: pick(rand, FLASHPOINT_DEFS).slug,

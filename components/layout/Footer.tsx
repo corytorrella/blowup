@@ -6,7 +6,7 @@ const COLUMNS: { title: string; links: { href: string; label: string }[] }[] = [
   {
     title: "Platform",
     links: [
-      { href: "/most-ratiod", label: "Most Ratio'd" },
+      { href: "/burn-list", label: "Burn List" },
       { href: "/flashpoints", label: "Flashpoints" },
       { href: "/halls-of-flame", label: "Halls of Flame" },
       { href: "/aftermath", label: "Aftermath" },
