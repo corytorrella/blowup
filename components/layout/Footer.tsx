@@ -6,10 +6,10 @@ const COLUMNS: { title: string; links: { href: string; label: string }[] }[] = [
   {
     title: "Platform",
     links: [
-      { href: "/most-feared", label: "Most Feared" },
+      { href: "/most-ratiod", label: "Most Ratio'd" },
       { href: "/flashpoints", label: "Flashpoints" },
-      { href: "/halls-of-shame", label: "Halls of Shame" },
-      { href: "/vault", label: "The Vault" },
+      { href: "/halls-of-flame", label: "Halls of Flame" },
+      { href: "/aftermath", label: "Aftermath" },
       { href: "/the-drop", label: "The Drop" },
     ],
   },

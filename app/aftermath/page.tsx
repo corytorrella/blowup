@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { VaultExplorer } from "@/components/vault/VaultExplorer";
+import { AftermathExplorer } from "@/components/aftermath/AftermathExplorer";
 import { TierBadge } from "@/components/blowup/TierBadge";
-import { allTimeVault, companies, categoryHalls, blowupOfTheYear, getCompany } from "@/lib/data";
+import { allTimeAftermath, companies, categoryHalls, blowupOfTheYear, getCompany } from "@/lib/data";
 import { formatHeat } from "@/lib/format";
 
-export const metadata: Metadata = { title: "The Vault" };
+export const metadata: Metadata = { title: "Aftermath" };
 
-export default function VaultPage() {
-  const archive = allTimeVault();
+export default function AftermathPage() {
+  const archive = allTimeAftermath();
   const boty = blowupOfTheYear();
   const botyCompany = getCompany(boty.companySlug);
 
@@ -17,7 +17,7 @@ export default function VaultPage() {
     <div className="mx-auto max-w-3xl px-4 py-16 md:px-8">
       <PageHeader
         eyebrow="The Permanent Record"
-        title="The Vault"
+        title="Aftermath"
         description={`Every Blowup ever posted, in order, forever. ${archive.length.toLocaleString()} and counting.`}
       />
 
@@ -34,7 +34,7 @@ export default function VaultPage() {
         </div>
       </Link>
 
-      <VaultExplorer blowups={archive} companies={companies} categories={categoryHalls} />
+      <AftermathExplorer blowups={archive} companies={companies} categories={categoryHalls} />
     </div>
   );
 }

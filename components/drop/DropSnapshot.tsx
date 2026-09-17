@@ -27,7 +27,7 @@ export function DropSnapshot({ drop }: { drop: DropEntry }) {
       </div>
 
       <div className="mt-8 border-t border-void-line">
-        {drop.mostFeared.map((slug, i) => {
+        {drop.mostRatiod.map((slug, i) => {
           const company = getCompany(slug);
           if (!company) return null;
           return (
@@ -38,7 +38,7 @@ export function DropSnapshot({ drop }: { drop: DropEntry }) {
             >
               <span className="data-num w-8 text-paper-muted">{String(i + 1).padStart(2, "0")}</span>
               <span className="flex-1 text-paper">{company.name}</span>
-              <span className="data-num text-paper-muted">{formatHeat(company.fearScore)}</span>
+              <span className="data-num text-paper-muted">{formatHeat(company.burnRatio)}</span>
             </Link>
           );
         })}

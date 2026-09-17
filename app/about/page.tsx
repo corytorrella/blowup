@@ -55,11 +55,11 @@ export default function AboutPage() {
             One tap, under their own Handle. Every pile-on is public, attached to a real account, and permanent.
           </Step>
           <Step n="03" title="The number climbs a ladder in front of everyone.">
-            Spark, Simmering, Trending, Viral, Blown Up, Nuclear &mdash; and the bigger it gets, the more places it
-            shows up.
+            Lit Fuse, Getting Cooked, Trending, Viral, Blowing Up, Nuclear &mdash; and the bigger it gets, the more
+            places it shows up.
           </Step>
           <Step n="04" title="Eventually, it's a number a company can't pretend not to see.">
-            On its own Fear Page, on category leaderboards, on Flashpoints, and on Most Feared.
+            On its own Burn Site, on category leaderboards, on Flashpoints, and on Most Ratio&rsquo;d.
           </Step>
         </ol>
       </section>

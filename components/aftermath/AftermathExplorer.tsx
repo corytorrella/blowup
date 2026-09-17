@@ -12,7 +12,7 @@ const PAGE_SIZE = 16;
 const DATE_RANGES = ["Any time", "Past week", "Past month", "Past year"] as const;
 const TIERS: HeatTier[] = ["spark", "simmering", "trending", "viral", "blown-up", "nuclear"];
 
-export function VaultExplorer({
+export function AftermathExplorer({
   blowups,
   companies,
   categories,

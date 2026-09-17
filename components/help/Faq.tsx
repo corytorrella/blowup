@@ -10,7 +10,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "How does Heat work?",
-    a: "Every pile-on adds to a Blowup's Heat. Heat climbs six tiers: Spark, Simmering, Trending, Viral, Blown Up, and Nuclear. A company's Fear Score is its total Heat across every Blowup ever filed against it.",
+    a: "Every pile-on adds to a Blowup's Heat. Heat climbs six tiers: Lit Fuse, Getting Cooked, Trending, Viral, Blowing Up, and Nuclear. A company's Burn Ratio is its total Heat across every Blowup ever filed against it.",
   },
   {
     q: "Who can I post about?",
@@ -18,7 +18,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "What's a Flashpoint?",
-    a: "A live page aggregating every Blowup tagged to the same pattern — junk fees, hidden cancellation fees, wait times — ranking every company caught up in it against each other, independent of any single company's own Fear Score.",
+    a: "A live page aggregating every Blowup tagged to the same pattern — junk fees, hidden cancellation fees, wait times — ranking every company caught up in it against each other, independent of any single company's own Burn Ratio.",
   },
   {
     q: "Can a company get a Blowup taken down?",
@@ -34,7 +34,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "What happens at The Drop?",
-    a: "Every Monday at noon, the Most Feared leaderboard locks and reveals its new order, alongside Biggest Mover of the Week and Flashpoint of the Week.",
+    a: "Every Monday at noon, the Most Ratio'd leaderboard locks and reveals its new order, alongside Biggest Mover of the Week and Flashpoint of the Week.",
   },
   {
     q: "Is my identity attached to what I post?",

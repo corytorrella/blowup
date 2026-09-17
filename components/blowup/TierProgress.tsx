@@ -10,7 +10,7 @@ export function TierProgress({ heat, tier }: { heat: number; tier: HeatTier }) {
       <div>
         <div className="h-1 w-full bg-blowtorch" aria-hidden="true" />
         <p className="label mt-2 text-[10px] text-paper-faint">
-          {tier === "nuclear" ? "All-time record. Permanent Hall of Shame induction." : "Top of the ladder."}
+          {tier === "nuclear" ? "All-time record. Permanent Hall of Flame induction." : "Top of the ladder."}
         </p>
       </div>
     );

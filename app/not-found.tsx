@@ -8,14 +8,14 @@ export default function NotFound() {
       <p className="label mb-3 text-[10px] text-paper-faint">404</p>
       <h1 className="font-display text-4xl tracking-wide text-paper md:text-5xl">Nothing Here Yet.</h1>
       <p className="mt-4 text-base text-paper-muted">
-        No Fear Page, Blowup, or record matches this address. Maybe it hasn&rsquo;t happened yet.
+        No Burn Site, Blowup, or record matches this address. Maybe it hasn&rsquo;t happened yet.
       </p>
       <div className="mt-10 flex gap-3">
         <ButtonLink href="/" variant="outline" size="md">
           Back Home
         </ButtonLink>
-        <ButtonLink href="/most-feared" size="md">
-          Most Feared
+        <ButtonLink href="/most-ratiod" size="md">
+          Most Ratio&rsquo;d
         </ButtonLink>
       </div>
     </div>

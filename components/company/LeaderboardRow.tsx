@@ -32,7 +32,7 @@ export function LeaderboardRow({ company, categoryLabel }: { company: Company; c
 
       <span className="flex items-center gap-3 justify-self-end">
         <TierBadge tier={company.tier} size="sm" />
-        <span className="data-num text-base text-paper md:text-lg">{formatHeat(company.fearScore)}</span>
+        <span className="data-num text-base text-paper md:text-lg">{formatHeat(company.burnRatio)}</span>
       </span>
     </Link>
   );

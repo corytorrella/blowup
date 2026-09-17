@@ -13,7 +13,7 @@ import {
 } from "./content-banks";
 import { seededRandom, pick, range } from "./rng";
 import { slugify } from "./slug";
-import { tierForBlowupHeat, tierForFearScore, tierForClout } from "./tiers";
+import { tierForBlowupHeat, tierForBurnRatio, tierForClout } from "./tiers";
 import type {
   Company,
   Blowup,
@@ -44,7 +44,7 @@ function capitalize(s: string): string {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
-const HALL_OF_SHAME_NAMES = new Set([
+const HALL_OF_FLAME_NAMES = new Set([
   "Northwing Airlines",
   "Ironclad Bank",
   "Circuit Telecom",
@@ -226,7 +226,7 @@ function buildReceipts(rand: () => number, count: number): Receipt[] {
   }));
 }
 
-function buildBlowupsForCompany(seed: CompanySeed, isHoS: boolean): Blowup[] {
+function buildBlowupsForCompany(seed: CompanySeed, isHallOfFlame: boolean): Blowup[] {
   const templates = COMPLAINT_TEMPLATES[seed.categorySlug] ?? [];
   const blowups: Blowup[] = [];
 
@@ -258,7 +258,7 @@ function buildBlowupsForCompany(seed: CompanySeed, isHoS: boolean): Blowup[] {
     });
   });
 
-  if (isHoS && templates.length > 0) {
+  if (isHallOfFlame && templates.length > 0) {
     const rand = seededRandom(`blowup-${seed.slug}-nuclear`);
     const tmpl = pick(rand, templates);
     const heat = range(rand, 32000, 146000);
@@ -308,10 +308,10 @@ function finalizeHandleBios(handles: Handle[]) {
 }
 
 // ---------------------------------------------------------------------------
-// Heat history (for Fear Page graphs)
+// Heat history (for Burn Site graphs)
 // ---------------------------------------------------------------------------
 
-function buildHeatHistory(seed: CompanySeed, fearScore: number, points = 26): HeatSample[] {
+function buildHeatHistory(seed: CompanySeed, burnRatio: number, points = 26): HeatSample[] {
   const rand = seededRandom(`history-${seed.slug}`);
   const raw: number[] = [];
   let acc = 0;
@@ -320,12 +320,12 @@ function buildHeatHistory(seed: CompanySeed, fearScore: number, points = 26): He
     acc += step;
     raw.push(acc);
   }
-  const scale = fearScore / (raw[raw.length - 1] || 1);
+  const scale = burnRatio / (raw[raw.length - 1] || 1);
   const history: HeatSample[] = raw.map((v, i) => {
     const daysBack = (points - 1 - i) * 7;
     return { date: daysAgoIso(daysBack), heat: Math.round(v * scale) };
   });
-  history[history.length - 1].heat = Math.round(fearScore);
+  history[history.length - 1].heat = Math.round(burnRatio);
   return history;
 }
 
@@ -339,7 +339,7 @@ assignTorches(handles);
 
 const companySeeds = buildCompanySeeds();
 const allBlowups: Blowup[] = companySeeds.flatMap((seed) =>
-  buildBlowupsForCompany(seed, HALL_OF_SHAME_NAMES.has(seed.name))
+  buildBlowupsForCompany(seed, HALL_OF_FLAME_NAMES.has(seed.name))
 );
 assignAuthors(allBlowups, handles);
 finalizeHandleBios(handles);
@@ -353,12 +353,12 @@ for (const b of allBlowups) {
 
 const companiesUnranked: Company[] = companySeeds.map((seed) => {
   const blowups = blowupsByCompany.get(seed.slug) ?? [];
-  const fearScore = blowups.reduce((s, b) => s + b.heat, 0);
-  const isHoS = HALL_OF_SHAME_NAMES.has(seed.name);
+  const burnRatio = blowups.reduce((s, b) => s + b.heat, 0);
+  const isHallOfFlame = HALL_OF_FLAME_NAMES.has(seed.name);
   const nuclearBlowup = blowups.find((b) => b.isNuclearRecord);
   const pledgeCount =
     blowups.reduce((s, b) => s + b.pledgeAdd, 0) +
-    Math.round(fearScore * 0.003);
+    Math.round(burnRatio * 0.003);
   const firstBlowupAt = blowups.reduce(
     (earliest, b) => (b.createdAt < earliest ? b.createdAt : earliest),
     blowups[0]?.createdAt ?? daysAgoIso(30)
@@ -368,20 +368,20 @@ const companiesUnranked: Company[] = companySeeds.map((seed) => {
     slug: seed.slug,
     name: seed.name,
     categorySlug: seed.categorySlug,
-    fearScore,
-    tier: tierForFearScore(fearScore, isHoS),
-    hallOfShame: isHoS,
+    burnRatio,
+    tier: tierForBurnRatio(burnRatio, isHallOfFlame),
+    hallOfFlame: isHallOfFlame,
     nuclearAt: nuclearBlowup?.createdAt,
     firstBlowupAt,
     pledgeCount,
     rank: 0,
     rankLastWeek: 0,
-    heatHistory: buildHeatHistory(seed, fearScore),
+    heatHistory: buildHeatHistory(seed, burnRatio),
     blurb: `${seed.name} — filed under ${cat.name}.`,
   };
 });
 
-companiesUnranked.sort((a, b) => b.fearScore - a.fearScore);
+companiesUnranked.sort((a, b) => b.burnRatio - a.burnRatio);
 companiesUnranked.forEach((c, i) => (c.rank = i + 1));
 for (const c of companiesUnranked) {
   const rand = seededRandom(`rank-shift-${c.slug}`);
@@ -485,12 +485,12 @@ function buildDrops(weeks = 10): DropEntry[] {
       const i = range(rand, 0, shuffled.length - 2);
       [shuffled[i], shuffled[i + 1]] = [shuffled[i + 1], shuffled[i]];
     }
-    const mostFeared = shuffled.slice(0, 10);
+    const mostRatiod = shuffled.slice(0, 10);
     entries.push({
       date,
-      mostFeared,
+      mostRatiod,
       biggestMover: {
-        companySlug: pick(rand, mostFeared),
+        companySlug: pick(rand, mostRatiod),
         delta: range(rand, 3, 11),
       },
       flashpointOfWeek: pick(rand, FLASHPOINT_DEFS).slug,
@@ -553,9 +553,9 @@ export function topInstigators(n: number): Handle[] {
   return [...handles].sort((a, b) => b.clout - a.clout).slice(0, n);
 }
 
-export function hallOfShameCompanies(): Company[] {
+export function hallOfFlameCompanies(): Company[] {
   return companies
-    .filter((c) => c.hallOfShame)
+    .filter((c) => c.hallOfFlame)
     .sort((a, b) => new Date(b.nuclearAt ?? 0).getTime() - new Date(a.nuclearAt ?? 0).getTime());
 }
 
@@ -563,17 +563,17 @@ export function blowupOfTheYear(): Blowup {
   return [...allBlowups].sort((a, b) => b.heat - a.heat)[0];
 }
 
-export function allTimeVault(): Blowup[] {
+export function allTimeAftermath(): Blowup[] {
   return [...allBlowups].sort((a, b) => b.heat - a.heat);
 }
 
-export const fearIndexTotal = companies.reduce((s, c) => s + c.fearScore, 0);
-export const fearIndex24h = allBlowups
+export const heatIndexTotal = companies.reduce((s, c) => s + c.burnRatio, 0);
+export const heatIndex24h = allBlowups
   .filter((b) => ageDaysFromIso(b.createdAt) < 1)
-  .reduce((s, b) => s + b.heat, 0) + Math.round(fearIndexTotal * 0.004);
+  .reduce((s, b) => s + b.heat, 0) + Math.round(heatIndexTotal * 0.004);
 export const totalHandles = handles.length;
 export const totalPledges = companies.reduce((s, c) => s + c.pledgeCount, 0);
 export const totalFlashpoints = flashpoints.length;
-export const totalActiveFearPages = companies.length;
+export const totalActiveBurnSites = companies.length;
 
 export const CURRENT_USER_HANDLE = handles.slice().sort((a, b) => b.clout - a.clout)[3]?.handle ?? handles[0].handle;

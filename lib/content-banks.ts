@@ -184,7 +184,7 @@ export const TORCH_DEFS: { id: string; name: string; description: string; icon: 
   { id: "boycott-captain", name: "Boycott Captain", description: "The Pledge count on a Blowup you started crossed 1,000.", icon: "shield" },
   { id: "repeat-offender", name: "Repeat Offender", description: "Three of your Blowups have hit Trending or higher.", icon: "repeat" },
   { id: "night-shift", name: "Night Shift", description: "Your post started climbing between midnight and 6 a.m.", icon: "moon" },
-  { id: "squad-goals", name: "Squad Goals", description: "Your Squad pushed a Blowup to Blown Up together.", icon: "target" },
+  { id: "squad-goals", name: "Squad Goals", description: "Your Squad pushed a Blowup to Blowing Up together.", icon: "target" },
   { id: "pattern-spotter", name: "Pattern Spotter", description: "You tagged a Blowup into a Flashpoint before it had five other companies in it.", icon: "radar" },
 ];
 

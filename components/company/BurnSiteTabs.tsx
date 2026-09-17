@@ -16,7 +16,7 @@ interface FlashpointRef {
 
 type Tab = "blowups" | "flashpoints" | "pledge";
 
-export function FearPageTabs({
+export function BurnSiteTabs({
   blowups,
   flashpoints,
   pledgeCount,

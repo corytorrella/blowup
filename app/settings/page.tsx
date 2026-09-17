@@ -24,7 +24,7 @@ export default function SettingsPage() {
       <SettingsSection title="Notifications">
         <Row label="Tier-up alerts" sub="When a Blowup you posted or piled on changes tiers." defaultOn />
         <Row label="Pile-on alerts" sub="When someone piles on a Blowup you started." defaultOn />
-        <Row label="Weekly Drop email" sub="A recap of Most Feared, delivered every Monday." />
+        <Row label="Weekly Drop email" sub="A recap of Most Ratio'd, delivered every Monday." />
         <Row label="Squad activity" sub="When your Squad earns a Torch or moves in rank." defaultOn />
       </SettingsSection>
 

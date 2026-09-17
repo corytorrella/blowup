@@ -20,7 +20,7 @@ export function InductionMoment({ companySlug, companyName }: { companySlug: str
       onClose={() => setOpen(false)}
       motif="flower"
       headline="Inducted"
-      sub={`${companyName} just crossed into Nuclear. Permanent Hall of Shame induction.`}
+      sub={`${companyName} just crossed into Nuclear. Permanent Hall of Flame induction.`}
     />
   );
 }

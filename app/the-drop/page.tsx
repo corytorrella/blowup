@@ -19,7 +19,7 @@ export default function TheDropPage() {
         <Countdown target={getNextDropTimestamp()} className="mt-3 justify-center" />
         <h1 className="font-display mt-8 text-4xl tracking-wide text-paper md:text-5xl">The Drop</h1>
         <p className="mt-3 max-w-md text-sm text-paper-muted">
-          Every Monday at noon, Most Feared locks and reveals its new order &mdash; alongside Biggest Mover and
+          Every Monday at noon, Most Ratio&rsquo;d locks and reveals its new order &mdash; alongside Biggest Mover and
           Flashpoint of the Week.
         </p>
       </div>

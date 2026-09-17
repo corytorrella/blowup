@@ -14,11 +14,11 @@ import {
   flashpoints,
   categoryHalls,
   companies,
-  hallOfShameCompanies,
-  fearIndex24h,
-  fearIndexTotal,
+  hallOfFlameCompanies,
+  heatIndex24h,
+  heatIndexTotal,
   totalHandles,
-  totalActiveFearPages,
+  totalActiveBurnSites,
   totalFlashpoints,
   totalPledges,
   getNextDropTimestamp,
@@ -28,13 +28,13 @@ import { formatHeat, formatDate } from "@/lib/format";
 import { HEAT_TIER_LABEL } from "@/lib/tiers";
 
 export default function HomePage() {
-  const mostFeared = topCompanies(8);
+  const mostRatiod = topCompanies(8);
   const spotlightFlashpoints = flashpoints.slice(0, 4);
-  const inductions = hallOfShameCompanies().slice(0, 4);
+  const inductions = hallOfFlameCompanies().slice(0, 4);
   const headline = blowupOfTheYear();
 
   const tickerItems = topCompanies(14).map((c) => ({
-    text: `${c.name.toUpperCase()} — ${formatHeat(c.fearScore)} HEAT — ${HEAT_TIER_LABEL[c.tier].toUpperCase()}`,
+    text: `${c.name.toUpperCase()} — ${formatHeat(c.burnRatio)} HEAT — ${HEAT_TIER_LABEL[c.tier].toUpperCase()}`,
     href: `/company/${c.slug}`,
   }));
 
@@ -50,8 +50,8 @@ export default function HomePage() {
           className="pointer-events-none absolute -right-10 -top-10 text-paper-faint opacity-40 md:right-10 md:top-10"
         />
         <p className="label mb-6 text-xs text-paper-faint">The live leaderboard of consumer rage</p>
-        <HeatCounter value={fearIndex24h} size="xl" simulateLive label="Fear Index, last 24 hours" className="justify-center text-hazard" />
-        <p className="label mt-3 text-[11px] text-paper-faint">Fear Index &middot; last 24 hours</p>
+        <HeatCounter value={heatIndex24h} size="xl" simulateLive label="Heat Index, last 24 hours" className="justify-center text-hazard" />
+        <p className="label mt-3 text-[11px] text-paper-faint">Heat Index &middot; last 24 hours</p>
 
         <h1 className="font-display mt-10 text-5xl uppercase leading-[0.95] tracking-wide text-paper md:text-7xl">
           Turn Frustration
@@ -71,11 +71,11 @@ export default function HomePage() {
       {/* Live Ticker */}
       <TickerMarquee items={tickerItems} />
 
-      {/* Most Feared preview */}
+      {/* Most Ratio'd preview */}
       <section className="mx-auto max-w-5xl px-4 py-20 md:px-8">
-        <SectionHeader eyebrow="Live Leaderboard" title="Most Feared" href="/most-feared" linkLabel="See Full Leaderboard" />
+        <SectionHeader eyebrow="Live Leaderboard" title="Most Ratio'd" href="/most-ratiod" linkLabel="See Full Leaderboard" />
         <div className="border-t border-void-line">
-          {mostFeared.map((c) => (
+          {mostRatiod.map((c) => (
             <LeaderboardRow key={c.slug} company={c} />
           ))}
         </div>
@@ -93,18 +93,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Halls of Shame quick links */}
+      {/* Halls of Flame quick links */}
       <section className="mx-auto max-w-5xl px-4 py-20 md:px-8">
-        <SectionHeader eyebrow="By Industry" title="Halls of Shame" href="/halls-of-shame" linkLabel="Browse All Halls" />
+        <SectionHeader eyebrow="By Industry" title="Halls of Flame" href="/halls-of-flame" linkLabel="Browse All Halls" />
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           {categoryHalls.map((cat) => {
             const worst = companies
               .filter((c) => c.categorySlug === cat.slug)
-              .sort((a, b) => b.fearScore - a.fearScore)[0];
+              .sort((a, b) => b.burnRatio - a.burnRatio)[0];
             return (
               <Link
                 key={cat.slug}
-                href={`/halls-of-shame/${cat.slug}`}
+                href={`/halls-of-flame/${cat.slug}`}
                 className="laser-hover flex flex-col gap-3 border border-void-line p-5 hover:border-hazard"
               >
                 <CategoryIcon slug={cat.slug} size={22} className="text-hazard" />
@@ -119,7 +119,7 @@ export default function HomePage() {
       {/* Recent Inductions */}
       <section className="border-t border-void-line px-4 py-20 md:px-8">
         <div className="mx-auto max-w-5xl">
-          <SectionHeader eyebrow="Hall of Shame" title="Recent Inductions" href="/hall-of-shame" linkLabel="View Hall of Shame" />
+          <SectionHeader eyebrow="Hall of Flame" title="Recent Inductions" href="/hall-of-flame" linkLabel="View Hall of Flame" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {inductions.map((c) => (
               <Link
@@ -143,9 +143,9 @@ export default function HomePage() {
         <div className="mx-auto max-w-5xl">
           <p className="label mb-10 text-xs text-paper-faint">Platform Momentum</p>
           <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
-            <Stat label="Heat Generated" value={fearIndexTotal} />
+            <Stat label="Heat Generated" value={heatIndexTotal} />
             <Stat label="Active Handles" value={totalHandles} />
-            <Stat label="Live Fear Pages" value={totalActiveFearPages} />
+            <Stat label="Live Burn Sites" value={totalActiveBurnSites} />
             <Stat label="Live Flashpoints" value={totalFlashpoints} />
             <Stat label="Boycott Pledges" value={totalPledges} />
           </div>

@@ -5,25 +5,25 @@ import { CategoryIcon } from "@/components/company/CategoryIcon";
 import { categoryHalls, companies } from "@/lib/data";
 import { formatHeat } from "@/lib/format";
 
-export const metadata: Metadata = { title: "Halls of Shame" };
+export const metadata: Metadata = { title: "Halls of Flame" };
 
-export default function HallsOfShamePage() {
+export default function HallsOfFlamePage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 md:px-8">
       <PageHeader
         eyebrow="By Industry"
-        title="Halls of Shame"
+        title="Halls of Flame"
         description="Every industry keeps its own scoreboard. Pick one."
       />
       <div className="grid gap-5 sm:grid-cols-2">
         {categoryHalls.map((cat) => {
           const ranked = companies
             .filter((c) => c.categorySlug === cat.slug)
-            .sort((a, b) => b.fearScore - a.fearScore);
+            .sort((a, b) => b.burnRatio - a.burnRatio);
           return (
             <Link
               key={cat.slug}
-              href={`/halls-of-shame/${cat.slug}`}
+              href={`/halls-of-flame/${cat.slug}`}
               className="laser-hover flex flex-col gap-4 border border-void-line bg-void-surface p-6 hover:border-hazard"
             >
               <div className="flex items-center gap-3">
@@ -37,7 +37,7 @@ export default function HallsOfShamePage() {
                     <span className="text-paper-muted">
                       {i + 1}. {c.name}
                     </span>
-                    <span className="data-num text-paper-faint">{formatHeat(c.fearScore)}</span>
+                    <span className="data-num text-paper-faint">{formatHeat(c.burnRatio)}</span>
                   </li>
                 ))}
               </ul>

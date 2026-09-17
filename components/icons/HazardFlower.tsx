@@ -2,7 +2,7 @@ import type { IconProps } from "./types";
 
 /**
  * The Hazard Flower — a single stencilled flower drawn in the precise
- * three-blade geometry of the nuclear trefoil. The Hall of Shame Induction graphic.
+ * three-blade geometry of the nuclear trefoil. The Hall of Flame Induction graphic.
  */
 export function HazardFlower({ size = 48, className, strokeWidth = 1.6, title, accent = false }: IconProps & { accent?: boolean }) {
   const petal =

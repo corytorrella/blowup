@@ -2,19 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { HazardFlower } from "@/components/icons";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { hallOfShameCompanies } from "@/lib/data";
+import { hallOfFlameCompanies } from "@/lib/data";
 import { formatHeat, formatDateLong } from "@/lib/format";
 
-export const metadata: Metadata = { title: "Hall of Shame" };
+export const metadata: Metadata = { title: "Hall of Flame" };
 
-export default function HallOfShameIndexPage() {
-  const inducted = hallOfShameCompanies();
+export default function HallOfFlameIndexPage() {
+  const inducted = hallOfFlameCompanies();
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 md:px-8">
       <PageHeader
         eyebrow="Permanent Record"
-        title="Hall of Shame"
+        title="Hall of Flame"
         description="Every company that has ever crossed into Nuclear. Induction is permanent — nothing here was ever taken down because a company complained."
       />
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -29,7 +29,7 @@ export default function HallOfShameIndexPage() {
             <span className="label text-[10px] text-paper-faint">
               Inducted {c.nuclearAt ? formatDateLong(c.nuclearAt) : "—"}
             </span>
-            <span className="data-num text-lg text-blowtorch">{formatHeat(c.fearScore)} Heat</span>
+            <span className="data-num text-lg text-blowtorch">{formatHeat(c.burnRatio)} Heat</span>
           </Link>
         ))}
       </div>

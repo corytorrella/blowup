@@ -50,8 +50,8 @@ export function BlowupHeatPanel({
         open={overlay !== null}
         onClose={() => setOverlay(null)}
         motif={overlay === "nuclear" ? "flower" : "blast"}
-        headline={overlay === "nuclear" ? "Nuclear" : "Blown Up"}
-        sub={overlay === "nuclear" ? "New all-time record. Permanent Hall of Shame induction." : "Full-screen takeover, site-wide."}
+        headline={overlay === "nuclear" ? "Nuclear" : "Blowing Up"}
+        sub={overlay === "nuclear" ? "New all-time record. Permanent Hall of Flame induction." : "Full-screen takeover, site-wide."}
       />
     </div>
   );

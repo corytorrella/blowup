@@ -117,7 +117,7 @@ export function StartBlowupFlow() {
                     className="flex w-full items-center justify-between px-4 py-3 text-left text-sm text-paper hover:bg-void-raised"
                   >
                     {c.name}
-                    <span className="label text-[10px] text-paper-faint">Fear Page exists</span>
+                    <span className="label text-[10px] text-paper-faint">Burn Site exists</span>
                   </button>
                 </li>
               ))}
@@ -125,7 +125,7 @@ export function StartBlowupFlow() {
           )}
           {eligibility.eligible && companyQuery.trim().length > 0 && suggestions.length === 0 && (
             <p className="mt-3 text-sm text-paper-muted">
-              No existing Fear Page for &ldquo;{companyQuery.trim()}&rdquo; &mdash; posting will create one.
+              No existing Burn Site for &ldquo;{companyQuery.trim()}&rdquo; &mdash; posting will create one.
             </p>
           )}
         </div>
@@ -347,8 +347,8 @@ function PostedConfirmation({ companyName }: { companyName: string }) {
         <Button variant="outline" size="md" onClick={() => window.location.reload()}>
           Start Another
         </Button>
-        <Button size="md" onClick={() => (window.location.href = "/most-feared")}>
-          See Most Feared
+        <Button size="md" onClick={() => (window.location.href = "/most-ratiod")}>
+          See Most Ratio&rsquo;d
         </Button>
       </div>
     </div>

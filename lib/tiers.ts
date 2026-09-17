@@ -10,11 +10,11 @@ export const HEAT_TIER_ORDER: HeatTier[] = [
 ];
 
 export const HEAT_TIER_LABEL: Record<HeatTier, string> = {
-  spark: "Spark",
-  simmering: "Simmering",
+  spark: "Lit Fuse",
+  simmering: "Getting Cooked",
   trending: "Trending",
   viral: "Viral",
-  "blown-up": "Blown Up",
+  "blown-up": "Blowing Up",
   nuclear: "Nuclear",
 };
 
@@ -51,12 +51,12 @@ export const COMPANY_TIER_THRESHOLD: Record<Exclude<HeatTier, "nuclear">, number
   "blown-up": 300000,
 };
 
-export function tierForFearScore(fearScore: number, hallOfShame: boolean): HeatTier {
-  if (hallOfShame) return "nuclear";
-  if (fearScore >= COMPANY_TIER_THRESHOLD["blown-up"]) return "blown-up";
-  if (fearScore >= COMPANY_TIER_THRESHOLD.viral) return "viral";
-  if (fearScore >= COMPANY_TIER_THRESHOLD.trending) return "trending";
-  if (fearScore >= COMPANY_TIER_THRESHOLD.simmering) return "simmering";
+export function tierForBurnRatio(burnRatio: number, hallOfFlame: boolean): HeatTier {
+  if (hallOfFlame) return "nuclear";
+  if (burnRatio >= COMPANY_TIER_THRESHOLD["blown-up"]) return "blown-up";
+  if (burnRatio >= COMPANY_TIER_THRESHOLD.viral) return "viral";
+  if (burnRatio >= COMPANY_TIER_THRESHOLD.trending) return "trending";
+  if (burnRatio >= COMPANY_TIER_THRESHOLD.simmering) return "simmering";
   return "spark";
 }
 
@@ -69,11 +69,11 @@ export const INSTIGATOR_TIER_ORDER: InstigatorTier[] = [
 ];
 
 export const INSTIGATOR_TIER_LABEL: Record<InstigatorTier, string> = {
-  ember: "Ember",
-  flare: "Flare",
-  wildfire: "Wildfire",
-  firestorm: "Firestorm",
-  legend: "Legend",
+  ember: "Flamethrower Technician",
+  flare: "Certified Burn Inspector",
+  wildfire: "Director of Demolition",
+  firestorm: "Chief Combustion Officer",
+  legend: "Nuclear Vibes Engineer",
 };
 
 export const INSTIGATOR_TIER_THRESHOLD: Record<InstigatorTier, number> = {
@@ -93,7 +93,7 @@ export function tierForClout(clout: number): InstigatorTier {
 }
 
 /** 0..1 intensity used to scale the Blast Mark and similar heat-driven visuals. */
-export function heatIntensity(fearScore: number): number {
+export function heatIntensity(burnRatio: number): number {
   const max = COMPANY_TIER_THRESHOLD["blown-up"] * 1.6;
-  return Math.max(0.06, Math.min(1, fearScore / max));
+  return Math.max(0.06, Math.min(1, burnRatio / max));
 }

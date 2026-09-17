@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { BlastMark } from "@/components/icons";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { fearIndexTotal, totalHandles, totalActiveFearPages, totalFlashpoints, totalPledges } from "@/lib/data";
+import { heatIndexTotal, totalHandles, totalActiveBurnSites, totalFlashpoints, totalPledges } from "@/lib/data";
 import { formatHeat } from "@/lib/format";
 
 export const metadata: Metadata = { title: "Press Kit" };
@@ -22,18 +22,18 @@ export default function PressPage() {
         <h2 className="font-display mb-4 text-2xl tracking-wide text-paper">Boilerplate</h2>
         <p className="max-w-2xl text-base leading-relaxed text-paper-muted">
           BLOWUP is a live leaderboard of consumer rage. Complaints against companies &mdash; called Blowups &mdash;
-          accumulate public &ldquo;Heat&rdquo; as people pile on, climbing a six-tier ladder from Spark to Nuclear.
+          accumulate public &ldquo;Heat&rdquo; as people pile on, climbing a six-tier ladder from Lit Fuse to Nuclear.
           Cross-company patterns surface automatically as Flashpoints, and the platform&rsquo;s weekly Drop reveals
-          the new order of its flagship Most Feared leaderboard every Monday at noon.
+          the new order of its flagship Most Ratio&rsquo;d leaderboard every Monday at noon.
         </p>
       </section>
 
       <section className="border-b border-void-line py-14">
         <h2 className="font-display mb-4 text-2xl tracking-wide text-paper">By the Numbers</h2>
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-5">
-          <Stat label="Heat Generated" value={formatHeat(fearIndexTotal)} />
+          <Stat label="Heat Generated" value={formatHeat(heatIndexTotal)} />
           <Stat label="Active Handles" value={formatHeat(totalHandles)} />
-          <Stat label="Live Fear Pages" value={formatHeat(totalActiveFearPages)} />
+          <Stat label="Live Burn Sites" value={formatHeat(totalActiveBurnSites)} />
           <Stat label="Live Flashpoints" value={formatHeat(totalFlashpoints)} />
           <Stat label="Boycott Pledges" value={formatHeat(totalPledges)} />
         </div>

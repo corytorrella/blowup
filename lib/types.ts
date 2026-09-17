@@ -19,9 +19,9 @@ export interface Company {
   slug: string;
   name: string;
   categorySlug: string;
-  fearScore: number;
+  burnRatio: number;
   tier: HeatTier;
-  hallOfShame: boolean;
+  hallOfFlame: boolean;
   nuclearAt?: string;
   firstBlowupAt: string;
   pledgeCount: number;
@@ -111,7 +111,7 @@ export interface Squad {
 
 export interface DropEntry {
   date: string;
-  mostFeared: string[];
+  mostRatiod: string[];
   biggestMover: { companySlug: string; delta: number };
   flashpointOfWeek: string;
 }

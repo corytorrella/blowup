@@ -41,7 +41,7 @@ export default function PostingPolicyPage() {
       <LegalHeading>Manipulation &amp; integrity</LegalHeading>
       <p>
         Automated detection for bot networks, coordinated inauthentic pile-ons, and paid brigading runs continuously
-        in the background. A Fear Score that can be bought or faked stops meaning anything, which defeats the
+        in the background. A Burn Ratio that can be bought or faked stops meaning anything, which defeats the
         purpose of the platform. Detected manipulation is discounted from Heat calculations; affected Handles may be
         suspended.
       </p>
@@ -50,7 +50,7 @@ export default function PostingPolicyPage() {
       <p>
         A named company may respond in the open comment thread on any Blowup, under a visible account, exactly like
         any other Handle. Nothing about a reply changes a Blowup&rsquo;s Heat, tier, or position on any leaderboard.
-        Companies cannot pay to remove a Blowup, boost or suppress a Fear Score, or receive advance notice of
+        Companies cannot pay to remove a Blowup, boost or suppress a Burn Ratio, or receive advance notice of
         postings.
       </p>
     </QuietPage>

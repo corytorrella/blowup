@@ -16,7 +16,7 @@ export function MobileTabBar() {
     { href: "/flashpoints", label: "Flashpoints", icon: Flame },
   ];
   const tabsRight = [
-    { href: "/vault", label: "Vault", icon: Search },
+    { href: "/aftermath", label: "Aftermath", icon: Search },
     { href: isLoggedIn ? "/me" : `/@${handle}`, label: "Profile", icon: CircleUserRound },
   ];
 

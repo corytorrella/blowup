@@ -53,8 +53,8 @@ export default function BlowupOfTheYearPage() {
           <ButtonLink href={`/company/${boty.companySlug}/blowup/${boty.id}`} size="lg">
             Read the Blowup
           </ButtonLink>
-          <ButtonLink href="/vault" variant="outline" size="lg">
-            Browse the Vault
+          <ButtonLink href="/aftermath" variant="outline" size="lg">
+            Browse Aftermath
           </ButtonLink>
         </div>
       </div>

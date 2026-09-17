@@ -9,10 +9,10 @@ import { Avatar } from "@/components/ui/Avatar";
 import { useAuth } from "@/components/auth/AuthProvider";
 
 const NAV_LINKS = [
-  { href: "/most-feared", label: "Most Feared" },
+  { href: "/most-ratiod", label: "Most Ratio'd" },
   { href: "/flashpoints", label: "Flashpoints" },
-  { href: "/halls-of-shame", label: "Halls of Shame" },
-  { href: "/vault", label: "The Vault" },
+  { href: "/halls-of-flame", label: "Halls of Flame" },
+  { href: "/aftermath", label: "Aftermath" },
 ];
 
 export function Header() {
@@ -45,7 +45,7 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-4">
-          <Link href="/vault" aria-label="Search" className="text-paper-muted hover:text-hazard">
+          <Link href="/aftermath" aria-label="Search" className="text-paper-muted hover:text-hazard">
             <Search size={18} strokeWidth={1.6} />
           </Link>
 
